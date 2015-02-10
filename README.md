@@ -1,2 +1,2 @@
-# Projeto Sunshine
-Desenvolvimento Android/Resolução de tarefas do Udacity.
+# Sunshine
+This project consists mainly on solving exercises and practicing android development.
