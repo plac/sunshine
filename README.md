@@ -1,2 +1,2 @@
-# sunshine
-estudos android
+# Projeto Sunshine
+Desenvolvimento Android/Resolução de tarefas do Udacity.
