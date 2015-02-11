@@ -6,7 +6,6 @@
     android:textAlignment="center"
     android:gravity="center"
     android:textSize="@dimen/abc_text_size_display_1_material"
-    android:background="#ffff5049"
     android:id="@+id/list_item_forecast_textview"
     android:singleLine="true">
 
