@@ -74,7 +74,7 @@ public class ForecastFragment extends Fragment {
         switch (id) {
             case R.id.action_refresh:
                 FetchWeatherTask fetchWeatherTask = new FetchWeatherTask();
-                fetchWeatherTask.doInBackground("94043");
+                fetchWeatherTask.execute("94043");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
