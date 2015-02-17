@@ -20,6 +20,11 @@ public class FetchWeatherTask extends AsyncTask<String, Void, Void> {
 
     @Override
     protected Void doInBackground(String... params) {
+        // Construct the URL for the OpenWeatherMap query
+        // Possible parameters are available at OWM's forecast API page, at
+        // http://openweathermap.org/API#forecast
+        if(params.length == 0) return null;
+
         // These two need to be declared outside the try/catch
         // so that they can be closed in the finally block.
         HttpURLConnection urlConnection = null;
@@ -29,14 +34,9 @@ public class FetchWeatherTask extends AsyncTask<String, Void, Void> {
         String forecastJsonStr = null;
 
         try {
-            // Construct the URL for the OpenWeatherMap query
-            // Possible parameters are available at OWM's forecast API page, at
-            // http://openweathermap.org/API#forecast
-            if(params.length == 0) return null;
-
 
             // building Uri
-            Uri uri = Uri.parse("https://api.openweathermap.org/data/2.5/forecast/daily?")
+            Uri uri = Uri.parse("http://api.openweathermap.org/data/2.5/forecast/daily?")
                     .buildUpon()
                     .appendQueryParameter("q", params[0])
                     .appendQueryParameter("mode","json")
@@ -92,9 +92,6 @@ public class FetchWeatherTask extends AsyncTask<String, Void, Void> {
             }
         }
 
-        Log.v(LOG_TAG, forecastJsonStr);
-
-        // forecastJsonStr;
         return null;
     }
 }
