@@ -14,12 +14,12 @@ import java.net.URL;
 /**
  * Created by pedro.lacerda on 12/02/2015.
  */
-public class FetchWeatherTask extends AsyncTask<String, Void, Void> {
+public class FetchWeatherTask extends AsyncTask<String, Void, String> {
 
     private final String LOG_TAG = FetchWeatherTask.class.getSimpleName();
 
     @Override
-    protected Void doInBackground(String... params) {
+    protected String doInBackground(String... params) {
         // Construct the URL for the OpenWeatherMap query
         // Possible parameters are available at OWM's forecast API page, at
         // http://openweathermap.org/API#forecast
@@ -92,6 +92,6 @@ public class FetchWeatherTask extends AsyncTask<String, Void, Void> {
             }
         }
 
-        return null;
+        return forecastJsonStr;
     }
 }
