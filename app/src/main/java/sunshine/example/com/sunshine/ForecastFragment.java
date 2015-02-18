@@ -28,6 +28,7 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -159,7 +160,7 @@ public class ForecastFragment extends Fragment {
         return rootView;
     }
 
-    private void UpdateForecasts(View view, ArrayList<String> listContent) {
+    private void UpdateForecasts(View view, List<String> listContent) {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_forecast, R.id.list_item_forecast_textview, listContent);
 
         ListView forecasts = (ListView) view.findViewById(R.id.listview_forecast);
@@ -184,7 +185,7 @@ public class ForecastFragment extends Fragment {
                     forecastJsonStr = fetchWeatherTask.execute("94043").get();
                     String[] forecasts = getWeatherDataFromJson(forecastJsonStr, 7);
 
-                    UpdateForecasts(getActivity(), new ArrayList<String>(Arrays.asList(forecasts)));
+                    UpdateForecasts(getActivity().findViewById(R.id.listview_forecast), Arrays.asList(forecasts));
                 }
                 catch (JSONException e) {
                     Log.e(LOG_TAG, e.getMessage());
